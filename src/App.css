@@ -1,36 +1,266 @@
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Global styles */
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
+body {
+  margin: 0;
+  font-family: 'Creato', sans-serif;
+  color: #333;
+  line-height: 1.6;
   background-color: #EFECE2;
-  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.hero {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1800px;
+  width: 100%;
+  padding: 3rem 2rem;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.hero-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  font-family: 'Creato Display';
-  color: 5E423C;
+  align-items: left;
+  max-width: 50%;
 }
 
-.App-link {
-  color: #61dafb;
+.hero-button-container {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  padding-top: 3rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+
+.hero-button {
+  background: none;
+  border: 1px solid #5E423C;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.7rem;
+  font-family: 'Creato', sans-serif;
+  padding: 1rem 1rem;
+  margin-right: 2rem;
+
+  transition: all 0.3s ease;
+  justify-content: left;
+}
+
+.hero-button:hover {
+  background-color: #5E423C;
+  color: #EFECE2;
+  transform: scale(1.05);
+}
+
+
+.hero h1 {
+  font-size: 4.3rem;
+  color: #5E423C;
+  font-family: 'Cirka', sans-serif;
+  margin-bottom: 1rem;
+}
+
+.hero h2 {
+  font-size: 2.6rem;
+  color: #5E423C;
+  font-family: 'Cirka', sans-serif;
+}
+
+.hero p {
+  font-size: 1.5rem;
+  color: #5E423C;
+  font-family: 'Creato', sans-serif;
+}
+
+.hero-image img {
+  width: auto;
+  height: 80vh;
+  margin-left: 2rem;
+  margin-right: 0rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+
+
+
+/* Whats on styles */
+.whats-on {
+  background-color: #5E423C;
+  margin: 0 auto;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.whats-on-container {
+  max-width: 1900px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+
+}
+
+.whats-on h2 {
+  color: #EFECE2;
+  font-family: 'Cirka', sans-serif;
+  font-size: 4.3rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+
+.whats-on .card {
+  padding: 3rem 3rem;
+  border-radius: 1px;
+  background-color: #5E423C;
+}
+
+.card-image-container {
+  overflow: hidden;
+  width: 500px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 60%;
+  margin: 0 auto;
+  border: 2px solid #EFECE2;
+
+}
+
+.card-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-text {
+  color: #EFECE2;
+  font-family: 'Creato', sans-serif;
+  text-align: left;
+  margin-top: 1rem;
+}
+
+
+.card-text h3 {
+  color: #EFECE2;
+  font-size: 3rem;
+  font-family: 'Cirka', sans-serif;
+  margin-bottom: 1rem;
+  padding: 0;
+}
+
+.card-text p {
+  color: #EFECE2;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  font-family: 'Creato', sans-serif;
+}
+
+@media (max-width: 1024px) {
+  .card-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
   }
 
-  to {
-    transform: rotate(360deg);
+  .card-image-container {
+    width: 100%;
+    height: auto;
+    max-width: 350px;
+    aspect-ratio: 1 / 1.2;
+    border-radius: 50%;
   }
+
+  .card-text h3 {
+    font-size: 2.5rem;
+  }
+
+  .card-text p {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .whats-on .card {
+    border-radius: 12px;
+    background-color: #5E423C;
+    margin: 0 1rem;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .whats-on h2 {
+    font-size: 3rem;
+  }
+
+  .card {
+    padding: 2rem;
+  }
+
+  .card-image-container {
+    max-width: 300px;
+    aspect-ratio: 1 / 1.2;
+  }
+
+  .card-text h3 {
+    font-size: 2rem;
+  }
+
+  .card-text p {
+    font-size: 1.4rem;
+  }
+}
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+/* About section styles */
+.about {
+  padding: 3rem 3rem;
+  background-image: url("../public/img/img_12.jpg");
+  background-size: cover;
+  background-position: 100% 75%;
+  min-height: 80vh;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+}
+
+.about-text {
+  justify-content: left;
+  margin: 2rem 8rem;
+  padding: 2rem 2rem;
+}
+
+.about-text h2 {
+  font-size: 5.5rem;
+  font-family: 'Cirka', sans-serif;
+  color: #EFECE2;
+}
+
+.about-text h3 {
+  font-size: 3.3rem;
+  font-family: 'Cirka', sans-serif;
+  color: #EFECE2;
 }
