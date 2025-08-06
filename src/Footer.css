@@ -160,3 +160,39 @@
     margin: 0 auto;
     /* centers within parent if needed */
 }
+
+
+@media (max-width: 1024px) {
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-cta h1 {
+        font-size: 3rem;
+        text-align: center;
+    }
+
+    .footer-bottom p {
+        font-size: 1.5rem;
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-cta h1 {
+        font-size: 2.5rem;
+    }
+
+    .footer-bottom p {
+        font-size: 1.5rem;
+        text-align: left;
+    }
+}

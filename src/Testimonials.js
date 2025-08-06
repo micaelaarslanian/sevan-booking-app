@@ -1,4 +1,3 @@
-import './Testimonials.css';
 
 const testimonialsData = [
     //this is an array of objects containing testimonial data. each object has a name, image, rating, and quote. 
@@ -21,24 +20,26 @@ const testimonialsData = [
 const Testimonials = () => {
     return (
         < section className="testimonials" >
-            <div className="testimonial-header">
-                <h2>Testimonials</h2>
-            </div>
-            <div className="testimonial-grid">
-                {testimonialsData.map((testimonial, index) => (
-                    <blockquote key={index} className="testimonial-card">
-                        <img
-                            src={testimonial.image}
-                            alt={`Person that is being quoted, in this case it's: ${testimonial.name}`}
-                            className="testimonial-img"
-                        />
-                        <p className="rating"> {testimonial.rating}</p>
-                        <div className="testimonial-info">
-                            <strong>  "{testimonial.quote}" </strong>
-                            <p> - {testimonial.name} </p>
-                        </div>
-                    </blockquote>
-                ))}
+            <div className="section-container testimonial-container">
+                <div className="testimonial-header">
+                    <h2>Testimonials</h2>
+                </div>
+                <div className="testimonial-grid">
+                    {testimonialsData.map((testimonial, index) => (
+                        <blockquote key={index} className="testimonial-card">
+                            <img
+                                src={testimonial.image}
+                                alt={`Person that is being quoted, in this case it's: ${testimonial.name}`}
+                                className="testimonial-img"
+                            />
+                            <p className="rating"> {testimonial.rating}</p>
+                            <div className="testimonial-info">
+                                <strong>  "{testimonial.quote}" </strong>
+                                <p> - {testimonial.name} </p>
+                            </div>
+                        </blockquote>
+                    ))}
+                </div>
             </div>
         </ section >
     );
