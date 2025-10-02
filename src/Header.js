@@ -19,7 +19,6 @@ function Header() {
                             <li><Link to="/bookings">Bookings</Link></li>
 
                             <li><a href="#about">About</a></li>
-                            <li><a href="#contact">Contact</a></li>
                         </ul>
                     </nav>
 
@@ -31,7 +30,6 @@ function Header() {
                         <Link to="/" className="bm-item">Home</Link>
                         <Link to="/bookings" className="bm-item">Bookings</Link>
                         <Link to="/about" className="bm-item">About</Link>
-                        <Link to="/contact" className="bm-item">Contact</Link>
                     </Menu>
                 </div>
             </header>

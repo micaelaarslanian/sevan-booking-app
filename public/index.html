@@ -4,6 +4,15 @@
 <head>
   <meta charset="utf-8" />
   <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <script src="https://cdn.jsdelivr.net/gh/courseraap/capstone@main/api.js"></script>
+  <!-- Promote the const bindings to window properties -->
+  <script>
+    // fetchAPI/submitAPI exist as global bindings, but not on window.
+    // Export them to window for your React code:
+    window.fetchAPI = window.fetchAPI || fetchAPI;
+    window.submitAPI = window.submitAPI || submitAPI;
+  </script>
+
   <meta name="description"
     content="Book your desk at Sevan Space — a silent, respectful coworking environment ideal for focused work and productivity.">
   <meta name="keywords"
@@ -17,6 +26,7 @@
   <meta property="og:image" content="/logos/branding-03.png">
   <meta property="og:url" content="https://sevan-space.com">
   <meta property="og:type" content="website">
+
   <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
