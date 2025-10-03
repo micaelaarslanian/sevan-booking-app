@@ -1,8 +1,8 @@
 import React, { useRef, useState } from "react";
 
 /**
- * Inline validation under each input while keeping the three inputs
- * in a single horizontal row.
+ * Inline validation per field; on invalid submit we notify the parent
+ * so it can show a warning card below the form.
  */
 export default function BookingForm({
     dateOptions,
@@ -13,17 +13,15 @@ export default function BookingForm({
     onTimeChange,
     onSubmitBooking,
     wasFetched = false,
+    onInvalidSubmit, // NEW (optional)
 }) {
-    // controlled fields
     const [fullName, setFullName] = useState("");
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
     const [message, setMessage] = useState("");
 
-    // error state
     const [errors, setErrors] = useState({ fullName: "", email: "", phone: "" });
 
-    // refs to focus the first invalid field on submit
     const fullNameRef = useRef(null);
     const emailRef = useRef(null);
     const phoneRef = useRef(null);
@@ -64,16 +62,20 @@ export default function BookingForm({
         return !fullNameErr && !emailErr && !phoneErr;
     }
 
-    const canSubmit =
-        Boolean(fullName && email && phone && time) && availableTimes.length > 0;
-
     function handleSubmit(e) {
         e.preventDefault();
-        if (!validateAll()) return;
+
+        // If invalid, show field errors *and* ask parent to show the warning card.
+        if (!validateAll() || !time) {
+            if (onInvalidSubmit) {
+                onInvalidSubmit("You need to fill in the form first.");
+            }
+            return;
+        }
 
         onSubmitBooking({ fullName, email, phone, message });
 
-        // reset personal info (keep date/time)
+        // Reset personal info (keep date/time)
         setFullName("");
         setEmail("");
         setPhone("");
@@ -81,7 +83,6 @@ export default function BookingForm({
         setErrors({ fullName: "", email: "", phone: "" });
     }
 
-    // per-field blur validation
     function handleBlur(field) {
         if (field === "fullName") {
             setErrors((p) => ({ ...p, fullName: validateFullName(fullName) }));
@@ -96,7 +97,6 @@ export default function BookingForm({
         <form className="footer-form" onSubmit={handleSubmit} noValidate>
             <h2>Booking Form</h2>
 
-            {/* Wrap each input in .field so its error can sit right below it */}
             <div className="form-row">
                 <div className="field">
                     <input
@@ -230,7 +230,8 @@ export default function BookingForm({
                 </div>
             </fieldset>
 
-            <button type="submit" disabled={!canSubmit}>
+            {/* Keep the button clickable unless there are literally no times */}
+            <button type="submit" disabled={!availableTimes.length}>
                 Book
             </button>
         </form>

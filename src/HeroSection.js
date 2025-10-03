@@ -5,9 +5,8 @@ const HeroSection = () => {
             <div className="hero-container section-container">
                 <div className="hero-text">
                     <h1> A quiet space for focused minds. </h1>
-                    <h2> Where work feels natural — without the noise, the pressure, or the price tag.  </h2>
                     <p>
-                        Sevan is a coworking space built for calm. No need to buy a latte to stay, no buzz of conversation around you — just respectful silence, soft design, and space to think.
+                        We believe focus thrives in a quiet, welcoming environment. <br></br> No pressure to buy, no noise — just people respecting each other.
                     </p>
 
                     <div className="hero-button-container">

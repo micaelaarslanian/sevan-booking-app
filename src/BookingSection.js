@@ -150,6 +150,12 @@ export default function BookingSection() {
                 onTimeChange={setTime}
                 onSubmitBooking={handleSubmitBooking}
                 wasFetched={hasFetchedTimes}
+                onInvalidSubmit={(message) => {
+                    // show warning in the same place as confirmation
+                    navigate("/confirmed", {
+                        state: { status: "warn", message: message || "You need to fill in the form first." },
+                    });
+                }}
             />
 
             {/* Nested route renders here, right below the dropdown */}
